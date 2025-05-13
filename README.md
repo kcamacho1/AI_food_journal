@@ -2,22 +2,22 @@
 Simple Food Journal Application using Python, Flask, SQLite, SQLAlchemy
 
 ## Done:
-[] Manual Food Entry
+[x] Manual Food Entry
 
-[] Database Model
+[x] Database Model
 
-[] Display datatable
+[x] Display datatable
 
-[] Save entries to datatable
+[x] Save entries to datatable
 
 ## To Do:
-[] Refactor
+[_] Refactor
 
-[] Process food entry through nutrition api
+[_] Process food entry through nutrition api
 
-  [] Get nutritional data and store to datatable converted to serving size
+  [_] Get nutritional data and store to datatable converted to serving size
   
-[] Display datatable and chart compared against RD values for the month
+[_] Display datatable and chart compared against RD values for the month
 
-[] Allow OCR food detection, upload photo, manual entry to run through nutritional api and save to datatable
+[_] Allow OCR food detection, upload photo, manual entry to run through nutritional api and save to datatable
 
