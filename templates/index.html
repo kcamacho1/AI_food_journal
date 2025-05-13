@@ -1,0 +1,38 @@
+<!--
+File Structure:
+
+food_journal site/
+    |--- index.html
+    |--- food_entry.html
+    |--- scan_food.html
+    |--- assets/
+            |--css/
+                |-- style.css
+        |-- images/
+
+--> 
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Ki Wellness</title>
+        <meta name="description" content="Wellness Support App">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha256-/ykJw/wDxMa0AQhHDYfuMEwVb4JHMx9h4jD4XvHqVzU=" crossorigin="anonymous" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'styles.css') }}">
+    </head>
+    <body>
+        <h1> Ki Wellness </h1>
+            <div id="navigation">
+                <ul class="nav">
+                    <li><a href="{{ url_for('home') }}" type="button" class="btn btn-outline-info btn-sm"> Home </a></li>
+                    <li><a href="{{ url_for('food_entry') }}" type="button" class="btn btn-outline-info btn-sm"> Food entry </a></li>
+                    <li><a href="{{ url_for ('scan_food') }}" type="button" class="btn btn-outline-info btn-sm"> Scan/ upload food </a></li>
+                    <li><a href="{{ url_for ('display_stats') }}" type="button" class="btn btn-outline-info btn-sm"> Statistics and Logs </a></li>
+                </ul>
+            </div>
+    {% block content %}{% endblock %}            
+    </body>
+</html>

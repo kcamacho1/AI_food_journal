@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% block content %}
+<title>Edit entry</title>
+
+<div class = "content">
+    <h2>Edit your entry</h2>
+
+    <form action="/edit/{{entry.id}}" method="POST">
+        <label>Food item</label>
+        <input type="text" name="food" id="food" value="{{entry.food}}" />
+        <label>Serving Size (oz)</label>
+        <input type="number" name="serving-size" id="serving_size" value="{{entry.serving_size}}"/>
+        <input type="submit" value="update" />
+    </form>
+</div>
+{% endblock %}
