@@ -2,9 +2,15 @@ from flask import Flask, render_template, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
+import gunicorn
+
 
 #my app
 app = Flask(__name__)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{os.path.join(basedir, 'database.db')}"
