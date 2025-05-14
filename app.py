@@ -2,8 +2,6 @@ from flask import Flask, render_template, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
-import gunicorn
-
 
 #my app
 app = Flask(__name__)
