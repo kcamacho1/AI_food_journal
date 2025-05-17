@@ -11,7 +11,7 @@ Simple Food Journal Application using Python, Flask, SQLite, SQLAlchemy
 [x] Save entries to datatable
 
 ## To Do:
-[_] Refactor
+[x] Refactor
 
 [_] Process food entry through nutrition api
 
