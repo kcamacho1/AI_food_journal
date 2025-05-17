@@ -1,58 +1,11 @@
 {% extends "index.html" %}
-
 {% block content %}
-<div class="food-content">
-    <h2>Food Entry page</h2>
-    {% if entries | length < 1 %}
-    <h3>No entries...please create one.</h3>
-    {% else %}
-    <table id="tableheaders" border="2" cellpadding="5" cellspacing="5">
-        <thead class="dblabels">
-            <tr>
-                <th>Food item</th>
-                <th>Serving size</th>
-                <th>Protein</th>
-                <th>Fat</th>
-                <th>Carbs</th>
-                <th>Logged</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        {% for entry in entries %}
-        <tbody class="dbcells">  
-            <tr>
-                <td>{{entry.food}}</td>
-                <td>{{entry.serving_size}}</td>
-                <td>{{ entry.protein or '—' }}</td>
-                <td>{{ entry.fat or '—' }}</td>
-                <td>{{ entry.carbs or '—' }}</td>
-                <td>{{entry.logged.strftime("%Y-%m-%d")}}</td>
-                <td>
-                    <a href="/delete/{{entry.id}}">delete</a>
-                    <a href="/edit/{{entry.id}}">edit</a>
-                </td>
-            </tr>
-        </tbody>    
-        {% endfor %}
-    </table>
-    {% endif %}
-    <form class="foodform" action="/food_entry" method="POST">
-        <fieldset class"foodformfieldset">
-            <p>
-                <label for="food">Food item: </label>
-                <input type="text" name="food" id="food" />
-            </p>
-            <p>
-                <label for="serving_size">Serving size: </label>
-                <input type="number" name="serving_size" id="serving_size" />
-                <label> oz </label>
-            </p>
-            <p>
-                <input type="submit" value="Add Entry" id="btn_add" />
-            </p>
-        </fieldset>
-    </form>
+<div>
+<h2 class="aligncenter">Journal Entry</h2>
 </div>
-
-
+<ul>
+    <a href="{{ url_for('food_entry_routes.manual_entry') }}" type="button" class="btn btn-outline-info btn-sm"> Manual entry </a></li>
+    <a href="{{ url_for('food_entry_routes.scan_food') }}" type="button" class="btn btn-outline-info btn-sm"> Scan food </a></li>
+    <a href="{{ url_for('food_entry_routes.upload_image') }}" type="button" class="btn btn-outline-info btn-sm"> Upload image </a></li>
+</ul>
 {% endblock %}

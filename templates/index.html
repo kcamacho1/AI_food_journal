@@ -28,9 +28,8 @@ food_journal site/
             <div id="navigation">
                 <ul class="nav">
                     <li><a href="{{ url_for('home') }}" type="button" class="btn btn-outline-info btn-sm"> Home </a></li>
-                    <li><a href="{{ url_for('food_entry') }}" type="button" class="btn btn-outline-info btn-sm"> Food entry </a></li>
-                    <li><a href="{{ url_for ('scan_food') }}" type="button" class="btn btn-outline-info btn-sm"> Scan/ upload food </a></li>
-                    <li><a href="{{ url_for ('display_stats') }}" type="button" class="btn btn-outline-info btn-sm"> Statistics and Logs </a></li>
+                    <li><a href="{{ url_for ('food_entry_routes.scan_food') }}" type="button" class="btn btn-outline-info btn-sm"> Food Entry </a></li>
+                    <li><a href="{{ url_for ('display_stats_routes.display_stats') }}" type="button" class="btn btn-outline-info btn-sm"> Statistics and Logs </a></li>
                 </ul>
             </div>
     {% block content %}{% endblock %}            

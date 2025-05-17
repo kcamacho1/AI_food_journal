@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="food-content">
+    <h2>Food Entry page</h2>
+        <form class="foodform" action="/food_entry" method="POST">
+        <fieldset class"foodformfieldset">
+            <p>
+                <label for="food">Food item: </label>
+                <input type="text" name="food" id="food" />
+            </p>
+            <p>
+                <label for="serving_size">Serving size: </label>
+                <input type="number" name="serving_size" id="serving_size" />
+                <label> oz </label>
+            </p>
+            <p>
+                <input type="submit" value="Add Entry" id="btn_add" />
+            </p>
+        </fieldset>
+    </form>
+</div>
+
+
+{% endblock %}

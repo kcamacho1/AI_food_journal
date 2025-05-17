@@ -3,4 +3,40 @@
 <div>
 <h2 class="alignleft">Statistics and Logs</h2>
 </div>
+    {% if entries | length < 1 %}
+    <h3>No entries...please create one.</h3>
+    {% else %}
+    <table id="tableheaders" border="2" cellpadding="5" cellspacing="5">
+        <thead class="dblabels">
+            <tr>
+                <th>Food item</th>
+                <th>Serving size</th>
+                <th>Protein</th>
+                <th>Fat</th>
+                <th>Carbs</th>
+                <th>Logged</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        {% for entry in entries %}
+        <tbody class="dbcells">  
+            <tr>
+                <td>{{entry.food}}</td>
+                <td>{{entry.serving_size}}</td>
+                <td>{{ entry.protein or '—' }}</td>
+                <td>{{ entry.fat or '—' }}</td>
+                <td>{{ entry.carbs or '—' }}</td>
+                <td>{{entry.logged.strftime("%Y-%m-%d")}}</td>
+                <td>
+                    <a href="/delete/{{entry.id}}">delete</a>
+                    <a href="/edit/{{entry.id}}">edit</a>
+                </td>
+            </tr>
+        </tbody>    
+        {% endfor %}
+    </table>
+    {% endif %}
+
+
+
 {% endblock %}

@@ -37,6 +37,7 @@ pyparsing==3.2.3
 pyScss==1.4.0
 pytest==8.3.5
 python-dateutil==2.9.0.post0
+python-dotenv==1.1.0
 pytz==2025.2
 referencing==0.36.2
 requests==2.32.3
