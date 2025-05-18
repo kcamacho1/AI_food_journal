@@ -4,6 +4,7 @@ from models import db, MyEntry
 from Utils.food_entry import food_entry_routes
 from Utils.actions import actions_routes
 from Utils.display_stats import display_stats_routes
+from config import NUTRITIONIX_API_KEY, NUTRITIONIX_APP_ID
 import os
 
 

@@ -7,7 +7,7 @@ h1{
 /* on child page */
 h2{
     font-family: papyrus;
-    text-align: left;
+    text-align: center;
     color: lightskyblue;
 }
 
@@ -45,7 +45,7 @@ div#navigation ul li{
     padding: 0;
     padding-left: 5px;
     position: relative;
-    left: 34%;
+    left: 39%;
 }
 div#navigation ul li a{
     display: block;
@@ -62,6 +62,14 @@ div#navigation ul li a:hover{
 }
 thead#dblabels{
     width: 100%;
-    float: left;
+    float: center;
     position: relative; 
+}
+div ul#secondnav a{
+    width: 100%;
+    float: center;
+}
+table#dbtable{
+    width: 100%;
+    float: center;
 }

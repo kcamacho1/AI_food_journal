@@ -4,8 +4,10 @@
 
 from flask import Blueprint, render_template, redirect, request
 from models import MyEntry, db
+from nutrition_api import fetch_nutrition_data
 
 food_entry_routes = Blueprint('food_entry_routes', __name__)
+
 
 ## Food Entry Homepage
 @food_entry_routes.route("/food_entry", methods = ["POST", "GET"])
@@ -47,3 +49,4 @@ def scan_food():
 @food_entry_routes.route("/upload_image", methods = ["POST", "GET"])
 def upload_image():
     return render_template('upload_image.html')
+
