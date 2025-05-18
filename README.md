@@ -1,7 +1,7 @@
 # food_journal
 Simple Food Journal Application using Python, Flask, SQLite, SQLAlchemy
 
-# Demo
+### Demo
 [Ki Wellness Nutrition Tracker](https://ki-wellness.onrender.com)
 
 (Please Allow time to load)
