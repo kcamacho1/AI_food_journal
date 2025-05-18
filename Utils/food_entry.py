@@ -4,7 +4,7 @@
 
 from flask import Blueprint, render_template, redirect, request
 from models import MyEntry, db
-from nutrition_api import fetch_nutrition_data
+from Utils.nutrition_api import fetch_nutrition_data
 
 food_entry_routes = Blueprint('food_entry_routes', __name__)
 
@@ -17,28 +17,39 @@ def food_entry():
 ## Form Entry
 @food_entry_routes.route("/form", methods=["GET", "POST"])
 def form():
+    data = {}
     if request.method == "POST":
-        food = request.form.get('food')
-        serving_size = request.form.get('serving_size')
+        if "autofill" in request.form:
+            food_query = request.form.get("food")
+            result = fetch_nutrition_data(food_query)
+            if result:
+                food_data = result["foods"][0]
+                data = {
+                    "food": food_data["food_name"],
+                    "serving_size": food_data["serving_qty"],
+                    "protein": food_data["nf_protein"],
+                    "fat": food_data["nf_total_fat"],
+                    "carbs": food_data["nf_total_carbohydrate"]
+                }
+        elif "submit" in request.form:
+            food = request.form.get("food")
+            serving_size = request.form.get("serving_size")
+            protein = request.form.get("protein")
+            fat = request.form.get("fat")
+            carbs = request.form.get("carbs")
 
-        if food and serving_size:
             new_entry = MyEntry(
                 food=food,
                 serving_size=int(serving_size),
-                protein=0,
-                fat=0,
-                carbs=0
+                protein=float(protein),
+                fat=float(fat),
+                carbs=float(carbs)
             )
-            try:
-                db.session.add(new_entry)
-                db.session.commit()
-                return redirect("/display_stats")
-            except Exception as e:
-                return f"ERROR: {e}"
-        else:
-            return "Food and Serving Size are required."
-    else:
-        return render_template('form.html')
+            db.session.add(new_entry)
+            db.session.commit()
+            return redirect(url_for('food_entry_routes.form'))
+
+    return render_template("form.html", data=data)
 
 ## Food Scanner
 @food_entry_routes.route("/scan_food", methods = ["POST", "GET"])
