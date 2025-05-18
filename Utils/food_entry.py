@@ -7,9 +7,14 @@ from models import MyEntry, db
 
 food_entry_routes = Blueprint('food_entry_routes', __name__)
 
-## Manual Entry
-@food_entry_routes.route("/manual_entry", methods=["GET", "POST"])
-def manual_entry():
+## Food Entry Homepage
+@food_entry_routes.route("/food_entry", methods = ["POST", "GET"])
+def food_entry():
+    return render_template('food_entry.html')
+
+## Form Entry
+@food_entry_routes.route("/form", methods=["GET", "POST"])
+def form():
     if request.method == "POST":
         food = request.form.get('food')
         serving_size = request.form.get('serving_size')
@@ -25,13 +30,13 @@ def manual_entry():
             try:
                 db.session.add(new_entry)
                 db.session.commit()
-                return redirect("display_stats_routes.display_stats")
+                return redirect("/display_stats")
             except Exception as e:
                 return f"ERROR: {e}"
         else:
             return "Food and Serving Size are required."
     else:
-        return render_template('food_entry.html')
+        return render_template('form.html')
 
 ## Food Scanner
 @food_entry_routes.route("/scan_food", methods = ["POST", "GET"])
