@@ -1,41 +1,48 @@
-<!--
-File Structure:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ki Wellness</title>
+    <meta name="description" content="Wellness Support App">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha256-/ykJw/wDxMa0AQhHDYfuMEwVb4JHMx9h4jD4XvHqVzU=" crossorigin="anonymous" />
 
-food_journal site/
-    |--- index.html
-    |--- food_entry.html
-    |--- scan_food.html
-    |--- assets/
-            |--css/
-                |-- style.css
-        |-- images/
+    <!-- Your Custom Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
 
---> 
+<body>
+    <h1>Ki Wellness</h1>
 
+    <!-- Navigation -->
+    <div id="navigation" class="centered-section">
+        <table>
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a href="{{ url_for('home') }}" class="btn btn-outline-info btn-sm m-1">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('food_entry_routes.food_entry') }}" class="btn btn-outline-info btn-sm m-1">Food Entry</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('display_stats_routes.display_stats') }}" class="btn btn-outline-info btn-sm m-1">Statistics and Logs</a>
+                </li>
+            </ul>
+        </table>
+    </div>
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Ki Wellness</title>
-        <meta name="description" content="Wellness Support App">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha256-/ykJw/wDxMa0AQhHDYfuMEwVb4JHMx9h4jD4XvHqVzU=" crossorigin="anonymous" />
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'styles.css') }}">
-    </head>
-    <body>
-        <h1> Ki Wellness </h1>
-            <div id="navigation">
-                <ul class="nav">
-                    <li><a href="{{ url_for('home') }}" type="button" class="btn btn-outline-info btn-sm"> Home </a></li>
-                    <li><a href="{{ url_for ('food_entry_routes.food_entry') }}" type="button" class="btn btn-outline-info btn-sm"> Food Entry </a></li>
-                    <li><a href="{{ url_for ('display_stats_routes.display_stats') }}" type="button" class="btn btn-outline-info btn-sm"> Statistics and Logs </a></li>
-                </ul>
-            </div>
-    {% block content %}{% endblock %}            
-    </body>
-    <footer>
-        <div class="gfm-embed" data-url="https://www.gofundme.com/f/be-part-of-the-nutrition-transformation/widget/small?sharesheet=fundraiser sidebar&attribution_id=sl:ba44010c-af2a-4810-911e-3326853306c1"></div>
-        <script defer src="https://www.gofundme.com/static/js/embed.js" ></script>    
-    </footer>
+    <!-- Dynamic Page Content -->
+    <div class="centered-section">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- GoFundMe Embed -->
+        <p><a class="second-centered-section" href= "https://www.gofundme.com/f/be-part-of-the-nutrition-transformation" target="_blank" rel="noopener noreferrer">Donate to keep this site going.</a></p>
+    </div>
+
+    <script defer src="https://www.gofundme.com/static/js/embed.js"></script>
+</body>
 </html>
