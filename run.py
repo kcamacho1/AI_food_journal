@@ -1,10 +1,10 @@
 from flask import Flask, render_template, redirect, request
 from flask_sqlalchemy import SQLAlchemy
-from models import db, MyEntry
+from models import db, FoodEntry
 from Utils.food_entry import food_entry_routes
 from Utils.actions import actions_routes
 from Utils.display_stats import display_stats_routes
-from config import NUTRITIONIX_API_KEY, NUTRITIONIX_APP_ID
+from dotenv import load_dotenv
 import os
 
 
@@ -35,6 +35,7 @@ import os
 
 # Initialize app
 app = Flask(__name__)
+load_dotenv()
 
 # Setup database config
 basedir = os.path.abspath(os.path.dirname(__file__))

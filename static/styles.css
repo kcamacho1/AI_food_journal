@@ -60,16 +60,19 @@ div#navigation ul li a{
 div#navigation ul li a:hover{
     background-color: antiquewhite;
 }
+
+div ul#secondnav a{
+    width: 100%;
+    float: center;
+    left: 35%
+}
+/* Database Table Display */
+table#dbtable{
+    width: 100%;
+    float: center;
+}
 thead#dblabels{
     width: 100%;
     float: center;
     position: relative; 
-}
-div ul#secondnav a{
-    width: 100%;
-    float: center;
-}
-table#dbtable{
-    width: 100%;
-    float: center;
 }
