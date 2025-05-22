@@ -16,11 +16,11 @@ def get_nutrition_data(food_name):
     if response.status_code == 200:
         nutrients = response.json()["foods"][0]
         return {
+            "food": nutrients["food_name"].title(),
             "calories": nutrients.get("nf_calories"),
             "protein": nutrients.get("nf_protein"),
             "fat": nutrients.get("nf_total_fat"),
-            "carbs": nutrients.get("nf_total_carbohydrate"),
-            "name": nutrients.get("nf_name")
+            "carbs": nutrients.get("nf_total_carbohydrate")
         } 
     else:
         print(f"Error: {response.status_code}, {response.text}")

@@ -26,7 +26,7 @@
                 <td>{{ entry.protein or '—' }}</td>
                 <td>{{ entry.fat or '—' }}</td>
                 <td>{{ entry.carbs or '—' }}</td>
-                <td>{{entry.logged.strftime("%Y-%m-%d")}}</td>
+                <td>{{entry.date.strftime("%Y-%m-%d")}}</td>
                 <td>
                     <a href="/delete/{{entry.id}}">delete</a>
                     <a href="/edit/{{entry.id}}">edit</a>

@@ -1,3 +1,9 @@
+/* Variables of consistant site colors */
+var {
+    --bg-color: aliceblue;
+    --subhead-color: lightskyblue;
+}
+
 /* ki wellness title */
 h1{
     font-family: papyrus;
@@ -8,13 +14,13 @@ h1{
 h2{
     font-family: papyrus;
     text-align: center;
-    color: lightskyblue;
+    color: var(--subhead-color);
 }
 
 /* links */
 body{
     margin-top: 75px;
-    background-color: aliceblue;
+    background-color: var(--bg-color);
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -75,4 +81,11 @@ thead#dblabels{
     width: 100%;
     float: center;
     position: relative; 
+}
+footer div#gfm-embed {
+    display: block;
+    width: 100%;
+    margin: 20 20 20 20px;
+    float: right;
+    background-color: var(--bg-color);
 }

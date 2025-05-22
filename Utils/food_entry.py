@@ -26,7 +26,7 @@ def add_food():
         nutrition = get_nutrition_data(food_input)
         if nutrition:
             new_entry = FoodEntry(
-                name=nutrition["name"],
+                food=nutrition["food"],
                 calories=nutrition["calories"],
                 protein=nutrition["protein"],
                 fat=nutrition["fat"],

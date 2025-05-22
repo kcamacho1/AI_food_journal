@@ -10,7 +10,7 @@ actions_routes = Blueprint('actions_routes', __name__)
 # Delete an entry
 @actions_routes.route("/delete/<int:id>", methods=["POST", "GET"])
 def delete(id: int):
-    delete_entry = MyEntry.query.get_or_404(id)
+    delete_entry = FoodEntry.query.get_or_404(id)
     try:
         db.session.delete(delete_entry)
         db.session.commit()
@@ -21,7 +21,7 @@ def delete(id: int):
 # Edit an entry
 @actions_routes.route("/edit/<int:id>", methods=["POST", "GET"])
 def edit(id: int):
-    entry = MyEntry.query.get_or_404(id)
+    entry = FoodEntry.query.get_or_404(id)
     if request.method == "POST":
         entry.food = request.form.get('food')
         entry.serving_size = request.form.get('serving_size')
