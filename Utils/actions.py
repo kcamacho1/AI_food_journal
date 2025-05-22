@@ -3,7 +3,7 @@
 #######################
 
 from flask import Blueprint, render_template, redirect, request
-from models import MyEntry, db
+from models import FoodEntry, db
 
 actions_routes = Blueprint('actions_routes', __name__)
 

@@ -1,8 +1,5 @@
 import requests
-import os
-
-NUTRITIONIX_APP_ID = os.getenv("NUTRITIONIX_APP_ID")
-NUTRITIONIX_API_KEY = os.getenv("NUTRITIONIX_API_KEY")
+from config import NUTRITIONIX_API_KEY, NUTRITIONIX_APP_ID
 
 def get_nutrition_data(food_name):
     url = "https://trackapi.nutritionix.com/v2/natural/nutrients"
@@ -15,7 +12,7 @@ def get_nutrition_data(food_name):
         "query": food_name
     }
 
-    reponse = requests.post(url, json=data, headers=headers)
+    response = requests.post(url, json=data, headers=headers)
     if response.status_code == 200:
         nutrients = response.json()["foods"][0]
         return {
