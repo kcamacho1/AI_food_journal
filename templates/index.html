@@ -24,8 +24,13 @@
                 <li class="nav-item">
                     <a href="{{ url_for('home') }}" class="btn btn-outline-info btn-sm m-1">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ url_for('food_entry_routes.food_entry') }}" class="btn btn-outline-info btn-sm m-1">Food Entry</a>
+                <li class="nav-item dropdown">
+                    <a href="#" onclick='return false'; class="btn btn-outline-info btn-sm m-1 dropdown-toggle" id="foodDropdown">Food Entry</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ url_for('food_entry_routes.add_food') }}">Add Food</a>
+                        <a class="dropdown-item" href="{{ url_for('food_entry_routes.scan_food') }}">Scan Food</a>
+                        <a class="dropdown-item" href="{{ url_for('food_entry_routes.upload_image') }}">Upload Pic</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a href="{{ url_for('display_stats_routes.display_stats') }}" class="btn btn-outline-info btn-sm m-1">Statistics and Logs</a>
@@ -40,9 +45,7 @@
     </div>
 
     <!-- GoFundMe Embed -->
-        <p><a class="second-centered-section" href= "https://www.gofundme.com/f/be-part-of-the-nutrition-transformation" target="_blank" rel="noopener noreferrer">Donate to keep this site going.</a></p>
+        <p><a class="second-centered-section" href= "https://www.gofundme.com/f/be-part-of-the-nutrition-transformation" target="_blank" rel="noopener noreferrer"> ~ Donate to keep this site going ~ </a></p>
     </div>
-
-    <script defer src="https://www.gofundme.com/static/js/embed.js"></script>
 </body>
 </html>
