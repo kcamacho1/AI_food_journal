@@ -5,8 +5,9 @@
     --main-font: green;
     --hover-font: antiquewhite;
 }
-. {
+a {
     color: var(--main-font);
+    text-decoration: none;
 }
 /* Title styling */
 h1 {

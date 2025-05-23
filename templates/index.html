@@ -19,13 +19,13 @@
     <div>
         <nav class="navbar">
             <p>
-            <button type="button" href="{{url_for('food_journal_routes.food_journal')}}" class="navlink">Food Journal</button>
+            <button type="button" class="navlink"><a href="{{ url_for('food_journal_routes.food_journal') }}" >Food Journal</a></button>
             </p>
             <p>
-            <button type="button" href="{{url_for('exercise_log_routes.exercise_log')}}" class="navlink">Exercise Log</button>
+            <button type="button" class="navlink"><a href="{{ url_for('exercise_log_routes.exercise_log') }}" >Exercise Log</a></button>
             </p>
             <p>
-            <button type="button" href="{{url_for('spiritual_playlist_routes.spiritual_playlist')}}" class="navlink">Spiritual Playlist</button>
+            <button type="button" class="navlink"><a href="{{ url_for('spiritual_playlist_routes.spiritual_playlist') }}">Spiritual Playlist</a></button>
             </p>
         </nav>
     </div>
