@@ -20,7 +20,8 @@ class FoodEntry(db.Model):
     protein = db.Column(db.Float, nullable=True)
     fat = db.Column(db.Float, nullable=True)
     carbs = db.Column(db.Float, nullable=True)
-    date = db.Column(db.DateTime, default=datetime.utcnow)
+    date = db.Column(db.Date, default=datetime.utcnow)
+    meal_type = db.Column(db.String(50))
 
     def __repr__(self) -> str:
         return f"Entry: {self.id}"

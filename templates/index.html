@@ -15,30 +15,22 @@
 </head>
 
 <body>
+    <img src="../asstes/kiWellnessicon.png" alt="alternatetext" />
     <h1>Ki Wellness</h1>
-
-    <!-- Navigation -->
-    <div id="navigation" class="centered-section">
-        <table>
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                    <a href="{{ url_for('home') }}" class="btn btn-outline-info btn-sm m-1">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="#" onclick='return false'; class="btn btn-outline-info btn-sm m-1 dropdown-toggle" id="foodDropdown">Food Entry</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{ url_for('food_entry_routes.add_food') }}">Add Food</a>
-                        <a class="dropdown-item" href="{{ url_for('food_entry_routes.scan_food') }}">Scan Food</a>
-                        <a class="dropdown-item" href="{{ url_for('food_entry_routes.upload_image') }}">Upload Pic</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url_for('display_stats_routes.display_stats') }}" class="btn btn-outline-info btn-sm m-1">Statistics and Logs</a>
-                </li>
-            </ul>
-        </table>
+    <div>
+        <nav class="navbar">
+            <p>
+            <button type="button" href="{{url_for('food_journal_routes.food_journal')}}" class="navlink">Food Journal</button>
+            </p>
+            <p>
+            <button type="button" href="/exercise_log" class="navlink">Exercise Log</button>
+            </p>
+            <p>
+            <button type="button" href="/spiritual_playlist" class="navlink">Spiritual Playlist</button>
+            </p>
+        </nav>
     </div>
-
+    <hr>
     <!-- Dynamic Page Content -->
     <div class="centered-section">
         {% block content %}{% endblock %}

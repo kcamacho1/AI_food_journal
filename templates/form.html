@@ -6,6 +6,15 @@
         <form class="foodform" action="/add_food" method="POST">
         <fieldset class"foodformfieldset">
             <p>
+                <label>Meal Type:</label>
+                <select name="meal_type">
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                    <option value="snack">Snack</option>
+                </select>
+            </p>
+            <p>
                 <label for="food_name">Enter Food item, serving size and units: </label>
                 <input type="text" name="food_name" id="food_name" />
             </p>

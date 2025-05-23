@@ -1,8 +1,20 @@
 {% extends "index.html" %}
 {% block content %}
 <div>
-<h2 class="subheader">Statistics and Logs</h2>
+<h2 class="subheader">Food Journal</h2>
 </div>
+
+<!-- Food Journal Entry Options -->
+<div class="db-button-bar">
+  <a href="{{ url_for('food_entry_routes.add_food') }}" class="btn">Manual Entry</a>
+  <a href="{{ url_for('food_entry_routes.scan_food') }}" class="btn">Food Scanner</a>
+  <a href="{{ url_for('food_entry_routes.upload_image') }}" class="btn">Upload Image</a>
+  <form action="/upload_spreadsheet" method="POST" enctype="multipart/form-data">
+    <input type="file" class ="btn" name="spreadsheet" accept=".csv, .xlsx" onchange="this.form.submit()" />
+  </form>
+</div>
+
+<!-- Food Journal Output -->
     {% if entries | length < 1 %}
     <h3>No entries...please create one.</h3>
     {% else %}
@@ -16,6 +28,7 @@
                 <th>Fat</th>
                 <th>Carbs</th>
                 <th>Logged</th>
+                <th>Meal Type</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -29,6 +42,7 @@
                 <td>{{entry.fat or '—'}}</td>
                 <td>{{entry.carbs or '—'}}</td>
                 <td>{{entry.date.strftime("%Y-%m-%d")}}</td>
+                <td>{{entry.meal_type}}</td>
                 <td>
                     <a href="/delete/{{entry.id}}">delete</a>
                     <a href="/edit/{{entry.id}}">edit</a>

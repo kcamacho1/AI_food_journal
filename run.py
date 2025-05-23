@@ -2,35 +2,9 @@ from flask import Flask, render_template, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from models import db, FoodEntry
 from Utils.food_entry import food_entry_routes
+from Utils.food_journal import food_journal_routes
 from Utils.actions import actions_routes
-from Utils.display_stats import display_stats_routes
 import os
-
-
-#TODO
-##
-
-# Homepage:   [] Center New Nav buttons
-# Food Entry: [] Display 3 options [manual, scan, upload]
-########      [] Remove 'Food Scanner' title
-#####         [] Onclick 'Manual' > Food Entry Form
-#             [] Onclick 'Scan' > 
-#                   [] Open Camera and scan image/barcode
-##                  [] Get food item and serving size and nutritional profile
-###                 [] Save in Food Journal Database
-#             [] Onclick 'Upload' 
-#                   [] Allow user image upload
-##                  [] Get food item name and serving size and nutritional profile
-###                 [] Save in Food Journal Database
-#             [] Onclick 'Manual' 
-#                   [] Get user form entry [Food item, serving size]
-##                  [] Save to database
-###                 [] Get Nutritional Profile
-# Statistics and Logs: 
-##            [x] Display table of Food entries
-###           [] Display Graph of user data vs RDA
-
-
 
 # Initialize app
 app = Flask(__name__)
@@ -50,7 +24,7 @@ def home():
 
 ##Routes
 app.register_blueprint(food_entry_routes) #Food Entry Methods
-app.register_blueprint(display_stats_routes) #Display Stats
+app.register_blueprint(food_journal_routes) #Display Stats
 app.register_blueprint(actions_routes) #Delete/Edit
 
 
