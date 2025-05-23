@@ -16,12 +16,14 @@ Simple Food Journal Application using Python, Flask, SQLite, SQLAlchemy
 
 [x] Save entries to datatable
 
-## To Do:
 [x] Refactor
 
-[_] Process food entry through nutrition api
+[x] Process food entry through nutrition api
 
-  |---- [_] Get nutritional data and store to datatable converted to serving size
+
+## To Do:
+
+[_] Get nutritional data and store to datatable converted to serving size
   
 [_] Display datatable and chart compared against RD values for the month
 
