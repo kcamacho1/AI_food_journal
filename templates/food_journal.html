@@ -9,9 +9,27 @@
   <a href="{{ url_for('food_entry_routes.add_food') }}" class="btn">Manual Entry</a>
   <a href="{{ url_for('food_entry_routes.scan_food') }}" class="btn">Food Scanner</a>
   <a href="{{ url_for('food_entry_routes.upload_image') }}" class="btn">Upload Image</a>
-  <form action="/upload_spreadsheet" method="POST" enctype="multipart/form-data">
-    <input type="file" class ="btn" name="spreadsheet" accept=".csv, .xlsx" onchange="this.form.submit()" />
-  </form>
+    <!-- Trigger Button -->
+    <button id="spreadsheetModalBtn" class="btn">📊 Spreadsheet tools</button>
+
+    <!-- The Modal -->
+    <div id="spreadsheetModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        
+        <h3>Upload Spreadsheet</h3>
+        <form action="{{ url_for('food_entry_routes.upload_spreadsheet') }}" method="POST" enctype="multipart/form-data">
+        <input type="file" name="spreadsheet" accept=".csv, .xlsx" required>
+        <button type="submit">Upload</button>
+        </form>
+
+        <hr>
+
+        <h3>Download Templates</h3>
+        <a href="{{ url_for('static', filename='../assets/food_log_template.csv') }}">📥 CSV Template</a><br>
+    </div>
+</div>
+
 </div>
 
 <!-- Food Journal Output -->

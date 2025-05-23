@@ -1,0 +1,3 @@
+food,calories,protein,fat,carbs,serving_qty,serving_unit,date,meal_type
+Apple,95,0.5,0.3,25,1,medium,2025-05-23,breakfast
+Chicken Breast,165,31.0,3.6,0,3,oz,2025-05-23,lunch

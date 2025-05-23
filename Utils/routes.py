@@ -2,10 +2,11 @@
 ## Food Entry Page ##
 #####################
 
-from flask import Blueprint, render_template, redirect, request
+from flask import Blueprint, render_template, redirect, request, flash
 from models import FoodEntry, db
 from Utils.nutritionix_api import get_nutrition_data
 from datetime import datetime
+import pandas as pd
 
 routes = Blueprint('routes', __name__)
 food_entry_routes = Blueprint('food_entry_routes', __name__)
@@ -62,6 +63,51 @@ def add_food():
 
     # Show the form on GET
     return render_template("form.html")
+
+## Spreadsheet Uploader
+
+@food_entry_routes.route("/upload_spreadsheet", methods=["POST"])
+def upload_spreadsheet():
+    if 'spreadsheet' not in request.files:
+        flash("No file part")
+        return redirect(url_for('display_stats'))
+
+    file = request.files['spreadsheet']
+    if file.filename == '':
+        flash("No selected file")
+        return redirect(url_for('display_stats'))
+
+    try:
+        ext = file.filename.rsplit('.', 1)[-1].lower()
+        if ext == "csv":
+            df = pd.read_csv(file)
+        elif ext in ["xls", "xlsx"]:
+            df = pd.read_excel(file)
+        else:
+            flash("Unsupported file format")
+            return redirect(url_for('display_stats'))
+
+        # Loop through each row and add to DB
+        for _, row in df.iterrows():
+            entry = FoodEntry(
+                food=row["food"],
+                calories=row["calories"],
+                protein=row["protein"],
+                fat=row["fat"],
+                carbs=row["carbs"],
+                serving_qty=row.get("serving_qty"),
+                serving_unit=row.get("serving_unit"),
+                date=pd.to_datetime(row.get("date", datetime.utcnow())),
+                meal_type=row.get("meal_type", "unspecified")
+            )
+            db.session.add(entry)
+
+        db.session.commit()
+        flash("Spreadsheet uploaded and entries added successfully.")
+    except Exception as e:
+        flash(f"Upload failed: {e}")
+
+    return redirect(url_for('display_stats'))
 
 ## Food Scanner
 @food_entry_routes.route("/scan_food", methods = ["POST", "GET"])
