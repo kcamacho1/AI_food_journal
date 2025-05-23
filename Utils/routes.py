@@ -7,15 +7,31 @@ from models import FoodEntry, db
 from Utils.nutritionix_api import get_nutrition_data
 from datetime import datetime
 
+routes = Blueprint('routes', __name__)
 food_entry_routes = Blueprint('food_entry_routes', __name__)
+exercise_log_routes = Blueprint('exercise_log_routes', __name__)
+spiritual_playlist_routes = Blueprint('spiritual_playlist_routes', __name__)
 
 
-## Food Entry Homepage
-@food_entry_routes.route("/food_entry", methods = ["POST", "GET"])
-def food_entry():
-    return render_template('food_journal.html')
 
-## Form Entry
+
+
+## Homepage
+@routes.route("/home", methods = ["POST", "GET"])
+def home():
+    return render_template('home.html')
+
+## Exercise Logger
+@exercise_log_routes.route("/exercise_log", methods = ["POST", "GET"])
+def exercise_log():
+    return render_template('exercise_log.html')
+
+## Spiritual playlist Page
+@spiritual_playlist_routes.route("/spiritual_playlist", methods = ["POST", "GET"])
+def spiritual_playlist():
+    return render_template('spiritual_playlist.html')
+
+## Food Journal and Food entry
 @food_entry_routes.route("/add_food", methods=["GET", "POST"])
 def add_food():
     if request.method == "POST":

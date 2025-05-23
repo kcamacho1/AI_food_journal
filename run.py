@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from models import db, FoodEntry
-from Utils.food_entry import food_entry_routes
+from Utils.routes import food_entry_routes, routes, spiritual_playlist_routes, exercise_log_routes
 from Utils.food_journal import food_journal_routes
 from Utils.actions import actions_routes
 import os
@@ -20,11 +20,14 @@ db.init_app(app)
 ##Home
 @app.route('/', methods=["POST", "GET"])
 def home():
-    return render_template('index.html')
+    return render_template('home.html')
 
 ##Routes
-app.register_blueprint(food_entry_routes) #Food Entry Methods
+app.register_blueprint(routes) # Regular Routes
 app.register_blueprint(food_journal_routes) #Display Stats
+app.register_blueprint(food_entry_routes) #Food Entry Methods
+app.register_blueprint(exercise_log_routes) #Exercise Logs
+app.register_blueprint(spiritual_playlist_routes) #Spiritual playlist
 app.register_blueprint(actions_routes) #Delete/Edit
 
 

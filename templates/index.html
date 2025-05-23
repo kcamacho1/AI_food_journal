@@ -15,7 +15,6 @@
 </head>
 
 <body>
-    <img src="../asstes/kiWellnessicon.png" alt="alternatetext" />
     <h1>Ki Wellness</h1>
     <div>
         <nav class="navbar">
@@ -23,10 +22,10 @@
             <button type="button" href="{{url_for('food_journal_routes.food_journal')}}" class="navlink">Food Journal</button>
             </p>
             <p>
-            <button type="button" href="/exercise_log" class="navlink">Exercise Log</button>
+            <button type="button" href="{{url_for('exercise_log_routes.exercise_log')}}" class="navlink">Exercise Log</button>
             </p>
             <p>
-            <button type="button" href="/spiritual_playlist" class="navlink">Spiritual Playlist</button>
+            <button type="button" href="{{url_for('spiritual_playlist_routes.spiritual_playlist')}}" class="navlink">Spiritual Playlist</button>
             </p>
         </nav>
     </div>
