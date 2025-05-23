@@ -4,7 +4,6 @@ from models import db, FoodEntry
 from Utils.food_entry import food_entry_routes
 from Utils.actions import actions_routes
 from Utils.display_stats import display_stats_routes
-from dotenv import load_dotenv
 import os
 
 
@@ -35,7 +34,6 @@ import os
 
 # Initialize app
 app = Flask(__name__)
-load_dotenv()
 
 # Setup database config
 basedir = os.path.abspath(os.path.dirname(__file__))

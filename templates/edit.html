@@ -6,12 +6,16 @@
 <div class = "content">
     <h2 class="subheader">Edit your entry</h2>
 
-    <form action="/edit/{{entry.id}}" method="POST">
-        <label>Food item</label>
-        <input type="text" name="food" id="food" value="{{entry.food}}" />
-        <label>Serving Size (oz)</label>
-        <input type="number" name="serving_size" id="serving_size" value="{{entry.serving_size}}"/>
-        <input type="submit" value="update" />
-    </form>
+<h2>Edit {{ entry.food }}</h2>
+
+<form method="POST">
+  <label>Serving Quantity:</label>
+  <input type="text" name="serving_qty" value="{{ entry.serving_qty }}">
+
+  <label>Serving Unit:</label>
+  <input type="text" name="serving_unit" value="{{ entry.serving_unit }}">
+
+  <button type="submit">Update</button>
+</form>
 </div>
 {% endblock %}

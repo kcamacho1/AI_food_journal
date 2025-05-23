@@ -14,6 +14,8 @@ class FoodEntry(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     food = db.Column(db.String(100), nullable=False)
+    serving_qty = db.Column(db.Float, nullable=True)
+    serving_unit = db.Column(db.String(50), nullable=True)
     calories = db.Column(db.Integer, nullable=False)
     protein = db.Column(db.Float, nullable=True)
     fat = db.Column(db.Float, nullable=True)

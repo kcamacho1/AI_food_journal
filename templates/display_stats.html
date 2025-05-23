@@ -10,7 +10,8 @@
         <thead class="dblabels">
             <tr>
                 <th>Food item</th>
-                <th>Serving size</th>
+                <th>Quantity</th>
+                <th>Units</th>
                 <th>Protein</th>
                 <th>Fat</th>
                 <th>Carbs</th>
@@ -22,10 +23,11 @@
         <tbody class="dbcells">  
             <tr>
                 <td>{{entry.food}}</td>
-                <td>{{entry.serving_size}}</td>
-                <td>{{ entry.protein or '—' }}</td>
-                <td>{{ entry.fat or '—' }}</td>
-                <td>{{ entry.carbs or '—' }}</td>
+                <td>{{entry.serving_qty}}</td>
+                <td>{{entry.serving_unit}}</td>                
+                <td>{{entry.protein or '—' }}</td>
+                <td>{{entry.fat or '—'}}</td>
+                <td>{{entry.carbs or '—'}}</td>
                 <td>{{entry.date.strftime("%Y-%m-%d")}}</td>
                 <td>
                     <a href="/delete/{{entry.id}}">delete</a>

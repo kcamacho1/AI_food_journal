@@ -2,17 +2,12 @@
 
 {% block content %}
 <div class="food-content">
-    <h2 class="subheader">Food Entry page</h2>
+    <h2 class="subheader">Food Entry</h2>
         <form class="foodform" action="/add_food" method="POST">
         <fieldset class"foodformfieldset">
             <p>
-                <label for="food_name">Food item: </label>
+                <label for="food_name">Enter Food item, serving size and units: </label>
                 <input type="text" name="food_name" id="food_name" />
-            </p>
-            <p>
-                <label for="serving_size">Serving size: </label>
-                <input type="number" name="serving_size" id="serving_size" />
-                <label> oz </label>
             </p>
             <p>
                 <input type="submit" value="Add Entry" id="btn_add" />

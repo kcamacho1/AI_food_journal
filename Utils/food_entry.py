@@ -13,7 +13,7 @@ food_entry_routes = Blueprint('food_entry_routes', __name__)
 ## Food Entry Homepage
 @food_entry_routes.route("/food_entry", methods = ["POST", "GET"])
 def food_entry():
-    return render_template('food_entry.html')
+    return render_template('display_stats.html')
 
 ## Form Entry
 @food_entry_routes.route("/add_food", methods=["GET", "POST"])
@@ -26,16 +26,18 @@ def add_food():
         nutrition = get_nutrition_data(food_input)
         if nutrition:
             new_entry = FoodEntry(
-                food=nutrition["food"],
-                calories=nutrition["calories"],
-                protein=nutrition["protein"],
-                fat=nutrition["fat"],
-                carbs=nutrition["carbs"],
+                food=nutrition["food_name"],
+                serving_qty=nutrition["serving_qty"],
+                serving_unit=nutrition["serving_unit"],
+                calories=nutrition["nf_calories"],
+                protein=nutrition["nf_protein"],
+                fat=nutrition["nf_total_fat"],
+                carbs=nutrition["nf_total_carbohydrate"],
                 date=datetime.utcnow()
             )
             db.session.add(new_entry)
             db.session.commit()
-            return redirect("/")
+            return redirect("/display_stats")
         else:
             return "Could not fetch nutrition data", 400
 
