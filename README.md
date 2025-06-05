@@ -6,6 +6,16 @@ Simple Food Journal Application using Python, Flask, SQLite, SQLAlchemy
 
 (Please Allow time to load)
 
+## Screenshots:
+![wireframe1](https://github.com/user-attachments/assets/545207bb-9e17-4fe8-95b0-1808886d201f)
+![welcomepage](https://github.com/user-attachments/assets/effddbfa-78ab-4f1f-aced-b885702686d0)
+![upload](https://github.com/user-attachments/assets/61672c88-9aba-40be-a682-648e1fa37817)
+![Tech~KiWellmess](https://github.com/user-attachments/assets/34abb1b5-32d5-4091-9f5f-63db8d7413b5)
+![kiwellnessv2](https://github.com/user-attachments/assets/2b7f773c-68c8-4311-9f05-53067b767667)
+<img width="1431" alt="kiwellnessv1" src="https://github.com/user-attachments/assets/3b5b50c3-747e-4253-a915-3c2e9b9b4cfe" />
+![enterfood](https://github.com/user-attachments/assets/4f614df6-fe0c-4674-8808-bbb8bc2f228f)
+<img width="1428" alt="design" src="https://github.com/user-attachments/assets/9a05a940-9e08-4f7d-bec8-baa9a6712f2b" />
+
 
 ## Done:
 [x] Manual Food Entry
