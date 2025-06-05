@@ -70,7 +70,24 @@
         {% endfor %}
     </table>
     {% endif %}
+    <div>
+        <br>
+        <h3>Nutrition Chart</h3>
+        <img src="/chart/week" alt="Weekly Nutrition Chart">
+    </div>
 
+<script>
+  const modal = document.getElementById("spreadsheetModal");
+  const btn = document.getElementById("spreadsheetModalBtn");
+  const span = document.getElementsByClassName("close")[0];
 
+  btn.onclick = () => modal.style.display = "block";
+  span.onclick = () => modal.style.display = "none";
+  window.onclick = (event) => {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
 
 {% endblock %}

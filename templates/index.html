@@ -15,30 +15,25 @@
 </head>
 
 <body>
+    <div class="content-wrapper">
     <h1>Ki Wellness</h1>
-    <div>
-        <nav class="navbar">
-            <p>
-            <button type="button" class="navlink"><a href="{{ url_for('food_journal_routes.food_journal') }}" >Food Journal</a></button>
-            </p>
-            <p>
-            <button type="button" class="navlink"><a href="{{ url_for('exercise_log_routes.exercise_log') }}" >Exercise Log</a></button>
-            </p>
-            <p>
-            <button type="button" class="navlink"><a href="{{ url_for('spiritual_playlist_routes.spiritual_playlist') }}">Spiritual Playlist</a></button>
-            </p>
+        <nav class="navigation">
+            <ul>
+                <li><a href="{{ url_for('food_journal_routes.food_journal') }}" >Food Journal</a></li>
+                <li><a href="{{ url_for('exercise_log_routes.exercise_log') }}" >Exercise Log</a></li>
+                <li><a href="{{ url_for('spiritual_playlist_routes.spiritual_playlist') }}" >Spiritual Playlist</a></li>
+            </ul>
         </nav>
-    </div>
     <hr>
     <!-- Dynamic Page Content -->
     <div class="centered-section">
         {% block content %}{% endblock %}
-    </div>
 
     <!-- GoFundMe Embed -->
         <footer>
             <p><a class="second-centered-section" href= "https://www.gofundme.com/f/be-part-of-the-nutrition-transformation" target="_blank" rel="noopener noreferrer"> ~ Donate to keep this site going ~ </a></p>
         </footer>
-    </div>
+    
+</div>
 </body>
 </html>
