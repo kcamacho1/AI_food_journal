@@ -8,7 +8,6 @@ import os
 
 # Initialize app
 app = Flask(__name__)
-app.secret_key = COOKIE_KEY  # Generates a new random key every time
 
 
 # Setup database config
