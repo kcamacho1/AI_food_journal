@@ -1,6 +1,5 @@
-<img width="200" alt="tech-kiwellness" float="left" src="https://github.com/user-attachments/assets/34abb1b5-32d5-4091-9f5f-63db8d7413b5" />
-
 # Ki Wellness App
+<img width="200" alt="tech-kiwellness" src="https://github.com/user-attachments/assets/34abb1b5-32d5-4091-9f5f-63db8d7413b5" />
 
 Welcome to my AI-powered holistic wellness app focused on nutrition, habit tracking, and spiritual well-being.
 
