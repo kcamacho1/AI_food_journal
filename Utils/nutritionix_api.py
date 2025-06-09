@@ -1,6 +1,9 @@
 import requests
-from config import NUTRITIONIX_API_KEY, NUTRITIONIX_APP_ID
+import os
 
+
+NUTRITIONIX_API_KEY = os.environ.get("NUTRITIONIX_API_KEY")
+NUTRITIONIX_APP_ID = os.environ.get("NUTRITIONIX_APP_ID")
 
 def get_nutrition_data(query):
     if not NUTRITIONIX_APP_ID or not NUTRITIONIX_API_KEY:

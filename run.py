@@ -4,7 +4,6 @@ from models import db, FoodEntry
 from Utils.routes import food_entry_routes, routes, spiritual_playlist_routes, exercise_log_routes
 from Utils.food_journal import food_journal_routes
 from Utils.actions import actions_routes
-from config import COOKIE_KEY
 import os
 
 # Initialize app
