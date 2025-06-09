@@ -5,6 +5,7 @@ from Utils.routes import food_entry_routes, routes, spiritual_playlist_routes, e
 from Utils.food_journal import food_journal_routes
 from Utils.actions import actions_routes
 import os
+from config import NUTRITIONIX_API_KEY, NUTRITIONIX_APP_ID
 
 # Initialize app
 app = Flask(__name__)
