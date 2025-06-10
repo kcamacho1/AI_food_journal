@@ -9,6 +9,10 @@ from datetime import datetime, timedelta
 import pandas as pd
 from io import BytesIO
 import matplotlib.pyplot as plt
+from Utils.nutrition_gaps import analyze_gaps, suggest_foods
+from ai.analyze_nutrition import build_nutrition_prompt, call_openrouter, RDA
+from models import FoodEntry
+from datetime import datetime, timedelta
 
 
 routes = Blueprint('routes', __name__)
@@ -67,8 +71,56 @@ def add_food():
     # Show the form on GET
     return render_template("form.html")
 
-## Spreadsheet Uploader
+## AI Meal Suggestions
 
+@food_entry_routes.route("/suggest_meals", methods=["POST", "GET"])
+def suggest_meals():
+    # Get period from user or default to week
+    period = request.args.get("period", "week")
+    now = datetime.utcnow()
+
+    if period == "day":
+        start = now - timedelta(days=1)
+    elif period == "week":
+        start = now - timedelta(weeks=1)
+    elif period == "month":
+        start = now - timedelta(days=30)
+    else:
+        return "Invalid period", 400
+
+    # Query DB
+    entries = FoodEntry.query.filter(FoodEntry.date >= start.date()).order_by(FoodEntry.date).all()
+
+    # Sum nutrients
+    user_intake = {"calories": 0, "protein": 0, "carbs": 0, "fat": 0}
+
+    for entry in entries:
+        user_intake["calories"] += entry.calories or 0
+        user_intake["protein"] += entry.protein or 0
+        user_intake["carbs"] += entry.carbs or 0
+        user_intake["fat"] += entry.fat or 0
+
+    # RDA totals over this period
+    multiplier = {"day": 1, "week": 7, "month": 30}[period]
+    rda_totals = {nutrient: RDA[nutrient] * multiplier for nutrient in RDA}
+
+    # Build food log string for AI
+    food_log = "\n".join([f"{entry.date}: {entry.meal_type or 'unspecified'} - {entry.food}" for entry in entries])
+    period_desc = f"{start.date()} to {now.date()}"
+
+    # Build prompt and call OpenRouter AI
+    prompt = build_nutrition_prompt(food_log, user_intake, rda_totals, period_desc)
+    ai_response = call_openrouter(prompt)
+
+    return render_template("suggestions.html",
+                           period=period,
+                           period_desc=period_desc,
+                           user_intake=user_intake,
+                           rda_totals=rda_totals,
+                           ai_response=ai_response)
+
+
+## Spreadsheet Uploader
 @food_entry_routes.route("/upload_spreadsheet", methods=["POST"])
 def upload_spreadsheet():
     if 'spreadsheet' not in request.files:
@@ -136,7 +188,7 @@ def chart(period):
     else:
         return "Invalid period", 400
 
-    logs = FoodLog.query.filter(FoodLog.date >= start).all()
+    logs = FoodEntry.query.filter(FoodEntry.date >= start).all()
     if not logs:
         return "No data to show"
 

@@ -7,8 +7,14 @@
 <!-- Food Journal Entry Options -->
 <div class="db-button-bar">
   <a href="{{ url_for('food_entry_routes.add_food') }}" class="btn">Manual Entry</a>
+  <form action="/suggest_meals" method="post" class="btn">
+    <button type="submit">Suggest Meals & Vitamins</button>
+  </form>
+ 
+ <!-- TODO
   <a href="{{ url_for('food_entry_routes.scan_food') }}" class="btn">Food Scanner</a>
   <a href="{{ url_for('food_entry_routes.upload_image') }}" class="btn">Upload Image</a>
+-->
     <!-- Trigger Button -->
     <button id="spreadsheetModalBtn" class="btn">📊 Spreadsheet tools</button>
 
