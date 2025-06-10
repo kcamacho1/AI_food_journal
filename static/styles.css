@@ -125,14 +125,6 @@ body {
     text-align: left;
 }
 
-.dropdown-item {
-    display: block;
-    padding: 5px 10px;
-    color: var(--main-font);
-    text-decoration: none;
-    font-size: 0.9rem;
-}
-
 .dropdown-item:hover {
     background-color: var(--hover-font);
 }
@@ -188,4 +180,17 @@ body {
 
 .close:hover { color: var(--subhead-color); }
 
+.ai-button {
+    background-color: var(--bg-color);
+    color: var(--main-font);
+    padding: 12px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
+.ai-button:hover {
+    color: black;
+}

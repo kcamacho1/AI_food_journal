@@ -13,6 +13,7 @@ from Utils.nutrition_gaps import analyze_gaps, suggest_foods
 from ai.analyze_nutrition import build_nutrition_prompt, call_openrouter, RDA
 from models import FoodEntry
 from datetime import datetime, timedelta
+import os
 
 
 routes = Blueprint('routes', __name__)
@@ -72,7 +73,6 @@ def add_food():
     return render_template("form.html")
 
 ## AI Meal Suggestions
-
 @food_entry_routes.route("/suggest_meals", methods=["POST", "GET"])
 def suggest_meals():
     # Get period from user or default to week
@@ -164,6 +164,12 @@ def upload_spreadsheet():
         flash(f"Upload failed: {e}")
 
     return render_template('food_journal.html')
+## Spreadsheet downloader
+@food_entry_routes.route("/download_template")
+def download_template():
+    template_path = os.path.join(os.getcwd(), "templates", "food_log_template.csv")
+    return send_file(template_path, as_attachment=True)
+
 
 ## Food Scanner
 @food_entry_routes.route("/scan_food", methods = ["POST", "GET"])
@@ -193,7 +199,7 @@ def chart(period):
         return "No data to show"
 
     df = pd.DataFrame([{
-        "date": log.date.date(),
+        "date": log.date(),
         "calories": log.calories,
         "protein": log.protein,
         "carbs": log.carbs,

@@ -4,7 +4,7 @@
 <h1>Nutrition Analysis for {{ period_desc }}</h1>
 
 <h2>Intake vs RDA Totals:</h2>
-<ul>
+<ul class="RDAlist">
 {% for nutrient, amount in user_intake.items() %}
     <li>
         {{ nutrient }}: {{ amount }} / {{ rda_totals[nutrient] }}
@@ -13,8 +13,9 @@
 </ul>
 
 <h2>AI Analysis:</h2>
-<pre style="white-space: pre-wrap; word-wrap: break-word;">{{ ai_response }}</pre>
-
-<a href="/food_journal" class="btn">Back to Food Journal</a>
+<pre style="white-space: pre-wrap; word-wrap: break-word;" class="airesponse">{{ ai_response }}</pre>
+<div class="btn">
+    <a href="/food_journal">Back to Food Journal</a>
+</div>
 </body>
 {% endblock %}
