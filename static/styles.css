@@ -109,10 +109,7 @@ body {
     margin-top: 50px;
     color: var(--main-font)
 }
-/* Custom dropdown hover behavior */
-.nav-item.dropdown:hover .dropdown-menu {
-    display: block;
-}
+
 
 .dropdown-menu {
     display: none;
