@@ -130,7 +130,7 @@ body {
   display: flex;
   gap: 10px;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   margin-left: 100px;
   color: var(--main-font);
 }
@@ -180,8 +180,8 @@ body {
 .ai-button {
     background-color: var(--bg-color);
     color: var(--main-font);
-    padding: 12px 20px;
-    margin: 10px 0;
+    padding: 0px 20px;
+    margin: 5px 0;
     border: none;
     border-radius: 8px;
     cursor: pointer;

@@ -6,17 +6,19 @@
 
 <!-- Food Journal Entry Options -->
 <div class="db-button-bar">
-  <a href="{{ url_for('food_entry_routes.add_food') }}" class="btn">Manual Entry</a>
+    <a href="{{ url_for('food_entry_routes.add_food') }}" class="btn">Manual Entry</a>
   <form action="/suggest_meals" method="post">
-      <button type="submit" class="ai-button">AI Suggest Meals & Vitamins</button>
+      <button type="submit" class="ai-button">AI analysis</button>
   </form>
   
  <!-- TODO
   <a href="{{ url_for('food_entry_routes.scan_food') }}" class="btn">Food Scanner</a>
   <a href="{{ url_for('food_entry_routes.upload_image') }}" class="btn">Upload Image</a>
+
+
+BUG Present
+    <button id="spreadsheetModalBtn" class="btn">Download/ Upload Journal</button>
 -->
-    <!-- Trigger Button -->
-    <button id="spreadsheetModalBtn" class="btn">📊 Spreadsheet tools</button>
 
     <!-- The Modal -->
     <div id="spreadsheetModal" class="modal">
