@@ -7,9 +7,18 @@
 <!-- Food Journal Entry Options -->
 <div class="db-button-bar">
     <a href="{{ url_for('food_entry_routes.add_food') }}" class="btn">Manual Entry</a>
-  <form action="/suggest_meals" method="post">
-      <button type="submit" class="ai-button">AI analysis</button>
-  </form>
+<form action="/suggest_meals" method="post" onsubmit="showSpinner()">
+    <button type="submit" class="ai-button">
+        <span>AI analysis</span>
+        <span id="spinner" class="spinner" style="display:none;">( )</span>
+    </button>
+</form>
+
+<script>
+function showSpinner() {
+    document.getElementById('spinner').style.display = 'inline-block';
+}
+</script>
   
  <!-- TODO
   <a href="{{ url_for('food_entry_routes.scan_food') }}" class="btn">Food Scanner</a>
