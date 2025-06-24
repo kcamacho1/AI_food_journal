@@ -1,11 +1,10 @@
 # AI Food Journal App
 <img width="200" alt="tech-kiwellness" src="https://github.com/user-attachments/assets/34abb1b5-32d5-4091-9f5f-63db8d7413b5" />
 
-Welcome to my AI-powered holistic wellness app focused on nutrition, habit tracking, and spiritual well-being.
+Welcome to my AI-powered food journal. Here you can enter a food item and quantity or serving size to have the app retrieve the macros (protein, Fat and carbs) for you and save it to a personal database. AI will then analyze your personal food journal database and provide meal suggestions and recomendations based on any found nutritional gaps.
 
 This project integrates:
 - Nutrition and meal planning
-- Mood and habit journaling [future TODO]
 - AI wellness suggestions using OpenAI
 
 [Donate to the cause](https://www.gofundme.com/f/be-part-of-the-nutrition-transformation?attribution_id=sl:2ee51fd3-a341-4ee1-b41e-5f6710c9b8d8&lang=en_US&utm_campaign=man_sharesheet_dash&utm_content=amp13_t1-amp15_t3&utm_medium=customer&utm_source=copy_link)
